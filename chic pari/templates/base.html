@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>{% block title %}pari sportif{% endblock %}</title>
+  {% load static %}
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="{% static 'css/mdb.min.css' %}"" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="{% static 'css/style.css' %}"" rel="stylesheet">
+  {% block link %}
+  {% endblock %}
+  <style type="text/css">
+    .ptsV{
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Start your project here-->
+  <div class="container">
+    {% block navbar %}
+      <div class="row">
+          <div class="col-12">
+              <!--Navbar -->
+            <nav class="mb-1 navbar navbar-expand-lg navbar-dark danger-color">
+              <a class="navbar-brand" href="{% url 'index' %}">Chic PaRi</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+                aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">Tous les paris
+                    </a>
+                    <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+                      <a class="dropdown-item" href="#">Football</a>
+                      <a class="dropdown-item" href="#">Basketball</a>
+                      <a class="dropdown-item" href="#">Handball</a>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'pari:direct' %}">match en direct <span class="badge badge-primary">{{nbre}}</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'pari:pariez' %}">Pariez ici</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'pari:inscription' %}">Inscription</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'pari:connection' %}">Connection</a>
+                  </li>
+                  
+                <!-- </ul>
+                <ul class="navbar-nav ml-auto nav-flex-icons">
+                  <li class="nav-item">
+                    <a class="nav-link waves-effect waves-light">
+                      <i class="fab fa-twitter"></i>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link waves-effect waves-light">
+                      <i class="fab fa-google-plus-g"></i>
+                    </a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-user"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                      aria-labelledby="navbarDropdownMenuLink-333">
+                      <a class="dropdown-item" href="#">Mes paris</a>
+                      <a class="dropdown-item" href="#">Mon profil</a>
+                      <a class="dropdown-item" href="#">deconnecion</a>
+                    </div>
+                  </li>
+                </ul> -->
+              </div>
+            </nav>
+            <!--/.Navbar -->
+          </div>
+      </div>
+      {% endblock %}
+
+      {% block content %}
+        <div class="row mb-1">
+          <div class="col-md-6">
+            <img alt="" class="i-amphtml-fill-content i-amphtml-replaced-content img-fluid" decoding="async" src="https://tpc.googlesyndication.com/simgad/5273069112442029977">
+          </div>
+          <div class="col-md-6">
+            <img alt="" class="i-amphtml-fill-content i-amphtml-replaced-content img-fluid" decoding="async" src="https://tpc.googlesyndication.com/simgad/5273069112442029977">
+          </div>
+        </div>
+      {% endblock %}
+      <div class="row">
+        
+        {% block section %}
+      {% endblock %}
+
+      {% block pub %}
+
+
+        <div class="col-md-4">  
+      
+    <img id="imagelanding" class="img-fluid mb-1" src="https://operator-front-static-cdn.winamax.fr/img/content/betting/2019/20190222_landingtest/20190222_clubs_partenaires_480x250_V3.jpg">
+
+    <img class="img-fluid mb-1" src="https://media2.giphy.com/media/S1TlUYxzpycTu/giphy.gif">
+
+    <img class="img-fluid mb-1" src="https://image.noelshack.com/fichiers/2018/03/5/1516377316-433-bs-new-season-always-on-banners-fr-450x250-02.gif">
+
+    <img class="img-fluid mb-1" src="https://bif-prono.com/wp-content/uploads/2018/09/logo-unibet-300x250.gif">
+
+    <img class="img-fluid mb-1" src="https://www.betcomparative.com/images/betclic-fr-250x250.gif">
+
+    <img class="img-fluid mb-1" src="https://bif-prono.com/wp-content/uploads/2018/10/betstar-gif-espagne.gif">
+
+    <!-- <img class="img-fluid mb-1" src="http://www.casinospreferes.com/wp-content/uploads/2018/11/de33f18d2cfe0abc5cbca3c86b4cc45e_screen.jpg"> -->
+
+    <img class="img-fluid mb-1" src="https://app-ci.net/wp-content/uploads/2019/01/Sportcash-logo.jpg">
+  </div>
+  
+  {% endblock %}
+      </div>
+      
+
+
+
+      {% block footer %}
+            <!-- Footer -->
+    <footer class="page-footer font-small danger-color">
+
+      <!-- Footer Links -->
+      <div class="container">
+
+        <!-- Grid row-->
+        <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+
+          <!-- Grid column -->
+          <div class="col-md-2 mb-3">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="#!">Tous les paris</a>
+            </h6>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2 mb-3">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="{% url 'pari:direct' %}">match en direct</a>
+            </h6>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2 mb-3">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="{% url 'pari:pariez' %}">Pariez ici</a>
+            </h6>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <!-- <div class="col-md-2 mb-3">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="#!">Deconnection</a>
+            </h6>
+          </div> -->
+          <!-- Grid column -->
+
+         
+        </div>
+        <!-- Grid row-->
+        <hr class="rgba-white-light" style="margin: 0 15%;">
+
+        <!-- Grid row-->
+        <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+
+          <!-- Grid column -->
+          <div class="col-md-8 col-12 mt-5">
+            <p style="line-height: 1.7rem">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium doloremque laudantium, totam rem
+              aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+              explicabo.
+              Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.</p>
+          </div>
+          <!-- Grid column -->
+
+        </div>
+        <!-- Grid row-->
+        <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+
+        <!-- Grid row-->
+        <div class="row pb-3">
+
+          <!-- Grid column -->
+          <div class="col-md-12">
+
+            <div class="mb-5 flex-center">
+
+              <!-- Facebook -->
+              <a class="fb-ic">
+                <i class="fab fa-facebook-f fa-lg white-text mr-4"> </i>
+              </a>
+              <!-- Twitter -->
+              <a class="tw-ic">
+                <i class="fab fa-twitter fa-lg white-text mr-4"> </i>
+              </a>
+              <!-- Google +-->
+              <a class="gplus-ic">
+                <i class="fab fa-google-plus-g fa-lg white-text mr-4"> </i>
+              </a>
+              <!--Linkedin -->
+              <a class="li-ic">
+                <i class="fab fa-linkedin-in fa-lg white-text mr-4"> </i>
+              </a>
+              <!--Instagram-->
+              <a class="ins-ic">
+                <i class="fab fa-instagram fa-lg white-text mr-4"> </i>
+              </a>
+              <!--Pinterest-->
+              <a class="pin-ic">
+                <i class="fab fa-pinterest fa-lg white-text"> </i>
+              </a>
+
+            </div>
+
+          </div>
+          <!-- Grid column -->
+
+        </div>
+        <!-- Grid row-->
+
+      </div>
+      <!-- Footer Links -->
+
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">© NaN-2.19 Threeboys:
+        <a href="https://mdbootstrap.com/education/bootstrap/"> Chic PaRi</a>
+      </div>
+      <!-- Copyright -->
+
+    <!-- Footer -->
+          </footer>
+        {% endblock %}
+
+  </div>
+  <!-- /Start your project here-->
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.0.min.js' %}"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+
+  {% block js %}
+  {% endblock %}
+</body>
+
+</html>
