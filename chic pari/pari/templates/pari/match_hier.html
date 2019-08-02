@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block section %}
+
+
+	<div class="col-md-8 ">
+		<div class="row mb-1">
+			<div class="col-md-10">
+				<a href="{% url 'pari:hier' %}" type="button" class="btn btn-sm btn-outline-dark btn-rounded waves-effect"><i class="fa fa-angle-double-left"></i> Hier</a>
+				<a href="{% url 'index' %}" type="button" class="btn btn-sm btn-outline-primary btn-rounded waves-effect"><i class="fa fa-angle-left"></i> Aujourd'hui <i class="fa fa-angle-right"></i></a>
+				<a href="{% url 'pari:demain' %}" type="button" class="btn btn-sm btn-outline-dark btn-rounded waves-effect">Demain <i class="fa fa-angle-double-right"></i></a>
+			</div>
+		</div>
+		<h2 class="text-center font-weight-bold text-danger mb-3 mt-2">Tous les Match de d'hier</h2>
+		<div id="matchHier">
+		{% for res in result %}
+		<table class="table table-striped">
+		  <thead class="p-0">
+		    <tr class="p-0">
+		      <th scope="col" colspan="4" class="p-0 bg-primary text-center font-weight-bold"><h3>{{res.ctgo}}</h3></th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	{% for mch in res.match%}
+		  	<tr class="p-0">
+		  	{% if "Pariez" in mch.time %}
+		    	<td class="p-0 pl-2">{{mch.heure}}</td>
+		    {% elif "Annulé" in mch.time %}
+		    	<td class="text-danger p-0 pl-2">{{mch.heure}} Annlué</td>
+		    {% elif "Terminé" in mch.time %}
+		    	<td class="text-default p-0 pl-2">{{mch.heure}} Terminé</td>
+		    {% elif "En attente" in mch.time %}
+		    	<td class="text-default p-0 pl-2">{{mch.heure}} En attente</td>
+		     {% elif "Après" in mch.time %}
+		    	<td class="p-0 pl-2">{{mch.heure}} Après TAB</td>
+		    {% elif "'" in mch.time or "mi" in mch.time or "BUT" in mch.time %}
+		    	<td class="font-weight-bold p-0 pl-2">{{mch.time}}<span class="text-success ptsV">.</span></td>
+		    {% else %}
+		    	<td class="p-0 pl-2">{{mch.heure}} </td>
+		    	
+		    {% endif %}
+		      <td class="p-0 text-right">{{mch.eqa}}</td>
+		      <td class="p-0 text-center">{{mch.scors}}</td>
+		      <td class="p-0 pr-2 text-left">{{mch.eqb}}</td>
+		    </tr>
+		    {% endfor %}
+		  </tbody>
+		</table>	
+			{% endfor %}
+		</div>
+	</div>
+
+
+
+
+{% endblock%}
+{% block js %}
+
+<script type="text/javascript">
+	$(function () {
+		function bis(){
+			$('#matchHier').load("{% url 'pari:hier' %} #matchHier");
+		}
+		setInterval(bis, 3000);
+	});
+
+</script>
+
+{% endblock %}

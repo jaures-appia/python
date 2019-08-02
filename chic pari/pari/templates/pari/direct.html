@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block section%}
+	<div class="col-md-8 " >
+		<h2 class="text-center font-weight-bold text-danger mb-3 mt-2">Tous les Match en Direct</h2>
+		<div id="direct">
+		{% for res in result %}
+		<table class="table table-striped">
+		  <thead class="p-0">
+		    <tr class="p-0">
+		      <th scope="col" colspan="4" class="p-0 bg-primary text-center font-weight-bold"><h3>{{res.ctgo}}</h3></th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	{% for mch in res.match%}
+		  	<tr class="p-0 ">
+		      <td class="p-0 pl-2">{{mch.heure}}  <span class="font-weight-bold badge badge-dark">{{mch.time}}<span class="ptsV text-success">.</span></span></td>
+		      <td class="p-0 text-right">{{mch.eqa}}</td>
+		      <td class="p-0 text-center">{{mch.scors}}</td>
+		      <td class="p-0 pr-2 text-left">{{mch.eqb}}</td>
+		    </tr>
+		    {% endfor %}
+		  </tbody>
+		</table>	
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}
+
+{% block js %}
+
+<script type="text/javascript">
+	$(function () {
+		var lien = document.location.href
+		function bis(){
+			$('#direct').load("{% url 'pari:direct' %} #direct");
+		}
+		setInterval(bis, 1000);
+	});
+
+</script>
+
+{% endblock %}
+
